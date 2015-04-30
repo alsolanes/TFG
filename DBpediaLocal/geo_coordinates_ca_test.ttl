@@ -1,0 +1,25 @@
+# started 2014-07-25T14:29:33Z
+<http://ca.dbpedia.org/resource/Amèrica> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+<http://ca.dbpedia.org/resource/Amèrica> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "19.0"^^<http://www.w3.org/2001/XMLSchema#float> .
+<http://ca.dbpedia.org/resource/Amèrica> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "-96.0"^^<http://www.w3.org/2001/XMLSchema#float> .
+<http://ca.dbpedia.org/resource/Amèrica> <http://www.georss.org/georss/point> "19.0 -96.0" .
+<http://ca.dbpedia.org/resource/Alt_Camp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+<http://ca.dbpedia.org/resource/Alt_Camp> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "41.28333333333333"^^<http://www.w3.org/2001/XMLSchema#float> .
+<http://ca.dbpedia.org/resource/Alt_Camp> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "1.25"^^<http://www.w3.org/2001/XMLSchema#float> .
+<http://ca.dbpedia.org/resource/Alt_Camp> <http://www.georss.org/georss/point> "41.28333333333333 1.25" .
+<http://ca.dbpedia.org/resource/Aiguamolls_de_l'Empordà> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+<http://ca.dbpedia.org/resource/Aiguamolls_de_l'Empordà> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "42.21944444444444"^^<http://www.w3.org/2001/XMLSchema#float> .
+<http://ca.dbpedia.org/resource/Aiguamolls_de_l'Empordà> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "3.1105555555555555"^^<http://www.w3.org/2001/XMLSchema#float> .
+<http://ca.dbpedia.org/resource/Aiguamolls_de_l'Empordà> <http://www.georss.org/georss/point> "42.21944444444444 3.1105555555555555" .
+<http://ca.dbpedia.org/resource/Alt_Empordà> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+<http://ca.dbpedia.org/resource/Alt_Empordà> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "42.28805555555556"^^<http://www.w3.org/2001/XMLSchema#float> .
+<http://ca.dbpedia.org/resource/Alt_Empordà> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "2.9330555555555557"^^<http://www.w3.org/2001/XMLSchema#float> .
+<http://ca.dbpedia.org/resource/Alt_Empordà> <http://www.georss.org/georss/point> "42.28805555555556 2.9330555555555557" .
+<http://ca.dbpedia.org/resource/Astúries> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+<http://ca.dbpedia.org/resource/Astúries> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "43.333333333333336"^^<http://www.w3.org/2001/XMLSchema#float> .
+<http://ca.dbpedia.org/resource/Astúries> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "-6.0"^^<http://www.w3.org/2001/XMLSchema#float> .
+<http://ca.dbpedia.org/resource/Astúries> <http://www.georss.org/georss/point> "43.333333333333336 -6.0" .
+<http://ca.dbpedia.org/resource/Apollo_11> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+<http://ca.dbpedia.org/resource/Apollo_11> <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "0.6740805555555556"^^<http://www.w3.org/2001/XMLSchema#float> .
+<http://ca.dbpedia.org/resource/Apollo_11> <http://www.w3.org/2003/01/geo/wgs84_pos#long> "23.472969444444445"^^<http://www.w3.org/2001/XMLSchema#float> .
+<http://ca.dbpedia.org/resource/Apollo_11> <http://www.georss.org/georss/point> "0.6740805555555556 23.472969444444445" .
