@@ -3,38 +3,105 @@ from collections import OrderedDict
 import simplejson as json
 import utm
  
-# Open the workbook and select the first worksheet
-wb = xlrd.open_workbook('CartoCat.xlsx')
-sh = wb.sheet_by_index(0)
- 
-# List to hold dictionaries
-cars_list = []
+import mongo_link
+from mongo_link import get_db, add_city_coord, get_coords_city, get_db_ciutats,\
+    get_examples, add_city_coord_2
 
-print "Conversio iniciada"
+def ini_json():
+    # Open the workbook and select the first worksheet
+    wb = xlrd.open_workbook('CartoCat.xlsx')
+    sh = wb.sheet_by_index(0)
+     
+    # List to hold dictionaries
+    cars_list = []
+    
+    print "Conversio iniciada"
+    # Iterate through each row in worksheet and fetch values into dict
+    for rownum in range(1, sh.nrows):
+        cars = OrderedDict()
+        row_values = sh.row_values(rownum)
+        cars['nom'] = row_values[0]
+        cars['tipus'] = row_values[1]
+        cars['municipi'] = row_values[2]
+        cars['comarca'] = row_values[6]
+        cars['utmX'] = row_values[15]
+        cars['utmY'] = row_values[16]
+        if cars['utmX']==0.0 or cars['utmY']==0.0:
+            continue
+        u = utm.to_latlon(cars['utmX'],cars['utmY'], 31, 'T')
+        cars['lat'] = u[0]
+        cars['lon'] = u[1]
+        
+        cars_list.append(cars)
+ 
+    # Serialize the list of dicts to JSON
+    j = json.dumps(cars_list)
+ 
+    # Write to file
+    with open('CartoCat_Aleix.json', 'w') as f:
+        f.write(j)
+        
+    print "Proces acabat"
+    
+def ini_cities_db():
+    print "Carregant fitxer"
+    # Open the workbook and select the first worksheet
+    wb = xlrd.open_workbook('CartoCat.xlsx')
+    sh = wb.sheet_by_index(0)
+    print "Fitxer carregat correctament"
 
-# Iterate through each row in worksheet and fetch values into dict
-for rownum in range(1, sh.nrows):
-    cars = OrderedDict()
-    row_values = sh.row_values(rownum)
-    cars['nom'] = row_values[0]
-    cars['tipus'] = row_values[1]
-    cars['municipi'] = row_values[2]
-    cars['comarca'] = row_values[6]
-    cars['utmX'] = row_values[15]
-    cars['utmY'] = row_values[16]
-    if cars['utmX']==0.0 or cars['utmY']==0.0:
-        continue
-    u = utm.to_latlon(cars['utmX'],cars['utmY'], 31, 'T')
-    cars['lat'] = u[0]
-    cars['lon'] = u[1]
+    db = get_db()
+    print "Conversio iniciada"
+    # Iterate through each row in worksheet and fetch values into dict
+    for rownum in range(1, sh.nrows):
+        cars = OrderedDict()
+        row_values = sh.row_values(rownum)
+        cars['nom'] = row_values[0]
+        cars['tipus'] = row_values[1]
+        #cars['municipi'] = row_values[2]
+        #cars['comarca'] = row_values[6]
+        cars['utmX'] = row_values[15]
+        cars['utmY'] = row_values[16]
+        if cars['utmX']==0.0 or cars['utmY']==0.0:
+            continue
+        u = utm.to_latlon(cars['utmX'],cars['utmY'], 31, 'T')
+        cars['lat'] = u[0]
+        cars['lon'] = u[1]
+        add_city_coord(db,cars['nom'],cars['lat'],cars['lon'])
+    print "Conversio finalitzada"
     
-    cars_list.append(cars)
- 
-# Serialize the list of dicts to JSON
-j = json.dumps(cars_list)
- 
-# Write to file
-with open('CartoCat_Aleix.json', 'w') as f:
-    f.write(j)
-    
-print "Proces acabat"
+def ini_only_cities_db():
+    print "Carregant fitxer"
+    # Open the workbook and select the first worksheet
+    wb = xlrd.open_workbook('CartoCat.xlsx')
+    sh = wb.sheet_by_index(0)
+    print "Fitxer carregat correctament"
+
+    db = get_db()
+    print "Conversio iniciada"
+    # Iterate through each row in worksheet and fetch values into dict
+    for rownum in range(1, sh.nrows):
+        cars = OrderedDict()
+        row_values = sh.row_values(rownum)
+        cars['nom'] = row_values[0]
+        cars['tipus'] = row_values[1]
+        #cars['municipi'] = row_values[2]
+        #cars['comarca'] = row_values[6]
+        cars['utmX'] = row_values[15]
+        cars['utmY'] = row_values[16]
+        #if cars['tipus']!= 'cap':
+        #    continue
+        if cars['utmX']==0.0 or cars['utmY']==0.0:
+            continue
+        u = utm.to_latlon(cars['utmX'],cars['utmY'], 31, 'T')
+        cars['lat'] = u[0]
+        cars['lon'] = u[1]
+        add_city_coord_2(db,cars['nom'],cars['lat'],cars['lon'])
+    print "Conversio finalitzada"
+        
+#ini_cities_db()
+#db = get_db()
+#ini_only_cities_db()
+db =get_db_ciutats()
+#get_coords_city(db, "Prats de Rei")
+get_examples(db)    
