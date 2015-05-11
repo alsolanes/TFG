@@ -1,7 +1,0 @@
-pkg: ply-3.4
-dist: ply-3.4-py27_0
-home: http://www.dabeaz.com/ply/
-license: BSD
-has_bin: False
-has_lib: False
-has_py: True

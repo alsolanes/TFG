@@ -62,7 +62,7 @@ def get_db_news2():
 import nltk
 from nltk.corpus import cess_cat
 text = get_db_news2()
-opt1=cess_cat.word_tokenize(text)
+opt1= 
 
 
 ###########################################################333

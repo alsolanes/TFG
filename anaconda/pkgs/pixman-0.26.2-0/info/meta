@@ -1,8 +1,0 @@
-pkg: pixman-0.26.2
-dist: pixman-0.26.2-0
-src_fn: pixman-0.26.2.tar.gz
-home: http://cgit.freedesktop.org/pixman/
-license: ???
-has_bin: False
-has_lib: True
-has_py: False

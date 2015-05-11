@@ -1,7 +1,0 @@
-pkg: decorator-3.4.0
-dist: decorator-3.4.0-py27_0
-home: http://pypi.python.org/pypi/decorator
-license: BSD
-has_bin: False
-has_lib: False
-has_py: True

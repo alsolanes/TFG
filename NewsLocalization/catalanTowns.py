@@ -23,7 +23,7 @@ SELECT ?title ?geolat ?geolong
         ?place geo:long ?geolong .
         FILTER ((?geolong > 0.5 && ?geolong < 2.7) && (?geolat < 42.5 && ?geolat > 40.5)) 
     }
-"""
+""")
 #SELECT count(*)
 #    WHERE {
 #        ?place rdf:type <http://dbpedia.org/ontology/Place> .
@@ -32,7 +32,7 @@ SELECT ?title ?geolat ?geolong
 #        ?place geo:long ?geolong .
 #        FILTER ((?geolong > 0.5 && ?geolong < 2.6) && (?geolat < 42.5 && ?geolat > 40.5))
 #    }
-)
+
  
 results = sparql.query().convert()
 print "Creant Fitxer..."
