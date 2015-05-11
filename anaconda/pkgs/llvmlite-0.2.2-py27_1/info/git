@@ -1,0 +1,14 @@
+==> git log -n1 <==
+commit bcb15bee8c28e4f4e65a8d4c636af9d97f8d1e8c
+Author: Siu Kwan Lam <michael.lam.sk@gmail.com>
+Date:   Tue Feb 3 10:52:31 2015 -0600
+
+    Update change log
+
+==> git describe --tags --dirty <==
+v0.2.2-1-gbcb15be
+
+==> git status <==
+# On branch master
+nothing to commit (working directory clean)
+

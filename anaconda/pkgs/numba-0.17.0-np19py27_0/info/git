@@ -1,0 +1,21 @@
+==> git log -n1 <==
+commit 772e4c0ad4bb07b329d65f6b9c40f097149431cd
+Merge: 18aa4de 9b3328c
+Author: Graham Markall <graham.markall@continuum.io>
+Date:   Mon Feb 2 15:09:53 2015 +0000
+
+    Merge pull request #974 from pitrou/prune_old_stuff
+    
+    Remove obsolete code and resources, inherited from old Numba.
+
+==> git describe --tags --dirty <==
+0.17.0
+
+==> git status <==
+# Not currently on any branch.
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	ANACONDA_DIST.txt
+nothing added to commit but untracked files present (use "git add" to track)
+

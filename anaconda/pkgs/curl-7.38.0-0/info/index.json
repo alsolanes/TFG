@@ -1,0 +1,17 @@
+{
+  "arch": "x86_64", 
+  "build": "0", 
+  "build_number": 0, 
+  "depends": [
+    "openssl 1.0.1*", 
+    "zlib 1.2.7"
+  ], 
+  "license": "MIT/X derivate (http://curl.haxx.se/docs/copyright.html)", 
+  "name": "curl", 
+  "platform": "linux", 
+  "requires": [
+    "openssl 1.0.1h", 
+    "zlib 1.2.7"
+  ], 
+  "version": "7.38.0"
+}

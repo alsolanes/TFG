@@ -1,0 +1,16 @@
+include/tiff.h
+include/tiffconf.h
+include/tiffio.h
+include/tiffio.hxx
+include/tiffvers.h
+lib/libtiff.a
+lib/libtiff.la
+lib/libtiff.so
+lib/libtiff.so.5
+lib/libtiff.so.5.1.0
+lib/libtiffxx.a
+lib/libtiffxx.la
+lib/libtiffxx.so
+lib/libtiffxx.so.5
+lib/libtiffxx.so.5.1.0
+lib/pkgconfig/libtiff-4.pc

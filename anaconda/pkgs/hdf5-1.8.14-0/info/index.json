@@ -1,0 +1,15 @@
+{
+  "arch": "x86_64", 
+  "build": "0", 
+  "build_number": 0, 
+  "depends": [
+    "zlib 1.2*"
+  ], 
+  "license": "BSD-style (http://www.hdfgroup.org/ftp/HDF5/current/src/unpacked/COPYING)", 
+  "name": "hdf5", 
+  "platform": "linux", 
+  "requires": [
+    "zlib 1.2.8"
+  ], 
+  "version": "1.8.14"
+}

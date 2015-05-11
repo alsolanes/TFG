@@ -1,0 +1,22 @@
+{
+  "arch": "x86_64", 
+  "build": "np19py27_1", 
+  "build_number": 1, 
+  "depends": [
+    "numpy 1.9*", 
+    "python 2.7*", 
+    "python-dateutil 2.4.1", 
+    "pytz"
+  ], 
+  "license": "BSD", 
+  "name": "pandas", 
+  "platform": "linux", 
+  "requires": [
+    "numpy 1.9", 
+    "python 2.7", 
+    "python-dateutil 2.4.1", 
+    "pytz 2014.9"
+  ], 
+  "ucs": 4, 
+  "version": "0.15.2"
+}

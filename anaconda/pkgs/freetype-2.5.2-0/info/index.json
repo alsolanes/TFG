@@ -1,0 +1,17 @@
+{
+  "arch": "x86_64", 
+  "build": "0", 
+  "build_number": 0, 
+  "depends": [
+    "libpng 1.5.13", 
+    "zlib 1.2*"
+  ], 
+  "license": "FreeType License (http://freetype.sourceforge.net/FTL.TXT)", 
+  "name": "freetype", 
+  "platform": "linux", 
+  "requires": [
+    "libpng 1.5.13", 
+    "zlib 1.2.8"
+  ], 
+  "version": "2.5.2"
+}

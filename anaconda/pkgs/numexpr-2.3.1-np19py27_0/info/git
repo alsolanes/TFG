@@ -1,0 +1,20 @@
+==> git log -n1 <==
+commit aba0e0a1ff1edc4cc8c82024dee1693c06aa1336
+Author: Francesc Alted <francesc@continuum.io>
+Date:   Tue Feb 18 08:56:23 2014 +0100
+
+    Getting ready for releasing 2.3.1 final
+
+==> git describe --tags --dirty <==
+v2.3.1
+
+==> git status <==
+# Not currently on any branch.
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	ANACONDA_DIST.txt
+#	build/
+#	numexpr/version.pyc
+nothing added to commit but untracked files present (use "git add" to track)
+
