@@ -1,0 +1,34 @@
+\select@language {catalan}
+\contentsline {section}{\numberline {1}Introducci\IeC {\'o}}{1}
+\contentsline {subsection}{\numberline {1.1}Big Data}{1}
+\contentsline {subsection}{\numberline {1.2}Data Science}{2}
+\contentsline {subsection}{\numberline {1.3}El projecte}{4}
+\contentsline {subsection}{\numberline {1.4}Antecedents}{4}
+\contentsline {subsection}{\numberline {1.5}Estructura de la Mem\IeC {\`o}ria}{8}
+\contentsline {section}{\numberline {2}Definici\IeC {\'o} d'objectius i motivaci\IeC {\'o} del problema}{9}
+\contentsline {subsection}{\numberline {2.1}Objectius}{9}
+\contentsline {subsection}{\numberline {2.2}Problema}{9}
+\contentsline {subsubsection}{\numberline {2.2.1}Cicle de vida d'una not\IeC {\'\i }cia}{9}
+\contentsline {subsection}{\numberline {2.3}Exemple del que es pret\IeC {\'e}n aconseguir}{10}
+\contentsline {section}{\numberline {3}Desenvolupament}{12}
+\contentsline {subsection}{\numberline {3.1}Eines utilitzades}{12}
+\contentsline {subsection}{\numberline {3.2}Fonts de les dades}{14}
+\contentsline {subsection}{\numberline {3.3}Una visi\IeC {\'o} alternativa, altres eines}{15}
+\contentsline {subsection}{\numberline {3.4}Preparaci\IeC {\'o} de l'entorn MongoDB i conceptes b\IeC {\`a}sics}{17}
+\contentsline {subsection}{\numberline {3.5}Obtenci\IeC {\'o} i neteja de les dades}{19}
+\contentsline {subsection}{\numberline {3.6}Obtenci\IeC {\'o} de localitats en un text}{32}
+\contentsline {subsection}{\numberline {3.7}Obtenci\IeC {\'o} de les coordenades d'una localitat}{34}
+\contentsline {subsection}{\numberline {3.8}Formataci\IeC {\'o} de les dades per a CartoDB}{34}
+\contentsline {subsection}{\numberline {3.9}Aplicaci\IeC {\'o} de l'algorisme DBScan}{35}
+\contentsline {subsection}{\numberline {3.10}Visualitzaci\IeC {\'o} de les dades}{39}
+\contentsline {subsection}{\numberline {3.11}Divulgaci\IeC {\'o} dels resultats}{43}
+\contentsline {subsection}{\numberline {3.12}Passos extra per a l'execuci\IeC {\'o} de la pr\IeC {\`a}ctica}{43}
+\contentsline {section}{\numberline {4}Metodologia}{45}
+\contentsline {subsection}{\numberline {4.1}Metodologia \IeC {\`A}gil}{45}
+\contentsline {subsection}{\numberline {4.2}Scrum aplicat al projecte}{47}
+\contentsline {subsection}{\numberline {4.3}Planificaci\IeC {\'o} inicial}{50}
+\contentsline {subsection}{\numberline {4.4}Planificaci\IeC {\'o} real}{51}
+\contentsline {section}{\numberline {5}Resultats}{53}
+\contentsline {section}{\numberline {6}Conclusions i vies de continuaci\IeC {\'o}}{59}
+\contentsline {subsection}{\numberline {6.1}Conclusions}{59}
+\contentsline {subsection}{\numberline {6.2}Vies continuaci\IeC {\'o}}{60}

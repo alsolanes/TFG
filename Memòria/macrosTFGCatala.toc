@@ -1,0 +1,28 @@
+\select@language {catalan}
+\contentsline {section}{\numberline {1}Introducci\IeC {\'o}}{1}
+\contentsline {subsection}{\numberline {1.1}Big Data}{1}
+\contentsline {subsection}{\numberline {1.2}Data Science}{2}
+\contentsline {subsection}{\numberline {1.3}El projecte}{4}
+\contentsline {subsection}{\numberline {1.4}Antecedents}{4}
+\contentsline {subsection}{\numberline {1.5}Estructura de la Mem\IeC {\`o}ria}{7}
+\contentsline {section}{\numberline {2}Definici\IeC {\'o} d'objectius i motivaci\IeC {\'o} del problema}{8}
+\contentsline {subsection}{\numberline {2.1}Objectius}{8}
+\contentsline {subsection}{\numberline {2.2}Problema}{8}
+\contentsline {subsubsection}{\numberline {2.2.1}Cicle de vida d'una not\IeC {\'\i }cia}{8}
+\contentsline {section}{\numberline {3}Desenvolupament}{10}
+\contentsline {subsection}{\numberline {3.1}Eines utilitzades}{10}
+\contentsline {subsection}{\numberline {3.2}Fonts de les dades}{12}
+\contentsline {subsection}{\numberline {3.3}Una visi\IeC {\'o} alternativa, altres eines}{12}
+\contentsline {subsection}{\numberline {3.4}Preparaci\IeC {\'o} de l'entorn MongoDB i conceptes b\IeC {\`a}sics}{12}
+\contentsline {subsection}{\numberline {3.5}Obtenci\IeC {\'o} i neteja de les dades}{14}
+\contentsline {subsection}{\numberline {3.6}Obtenci\IeC {\'o} de localitats en un text}{20}
+\contentsline {subsection}{\numberline {3.7}Obtenci\IeC {\'o} de les coordenades d'una localitat}{20}
+\contentsline {subsection}{\numberline {3.8}Formataci\IeC {\'o} de les dades per a CartoDB}{20}
+\contentsline {subsection}{\numberline {3.9}Aplicaci\IeC {\'o} de l'algorisme DBScan}{20}
+\contentsline {subsection}{\numberline {3.10}Visualitzaci\IeC {\'o} de les dades}{20}
+\contentsline {subsection}{\numberline {3.11}Divulgaci\IeC {\'o} dels resultats}{20}
+\contentsline {section}{\numberline {4}Metodologia i resultats}{21}
+\contentsline {subsection}{\numberline {4.1}Metodologia}{21}
+\contentsline {subsection}{\numberline {4.2}Resultats}{21}
+\contentsline {section}{\numberline {5}Concordan\IeC {\c c}a de resultats i objectius}{22}
+\contentsline {section}{\numberline {6}Conclusions}{23}
