@@ -28,26 +28,142 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <h3>
-<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h3>
-
-<p>This project came up after a few meetings with the professor Dr. Jordi Vitrià talking about Data Science, the possibilities inside this sector, about interesting projects that people made using Data Science, we talked about some cases that could be interesting to analyse, all with a spot in mind, the possibility of reaching a result and visualize that result in an understandable way. So, after those inspiring meetings we achieved the main idea of this project: Geolocation of news.</p>
+          <h2>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h2>
 
 <p>Regarding the journalism sector, hundreds of news are published every day, but unfortunately not all of them include a proper geographic reference. All those news with a reference to a geographic location let the door open to a new way of distribution, and also let new ways of analysis based on this new parameter, the location.
 As an example, imagine that a developer wants to let a user with a smartphone or a tablet, receive automatically the news related to the place where the user is. Without a reference to where the news took place it is difficult to face the problem, however with a reference to a place the problem now seems affordable.</p>
 
-<p>During the realization of this project, various tools and methods are used in order to obtain automatically a set of georeferenced tags from the news and thus be able to show the results in an easy way to analyse.</p>
+<p>Despite being this project based in the concept of Data Science, I am not explicitly  using algorithms from the world of Data Science, I follow, however, the main principles: look for databases that can help me face the problem, clean all data in order to be able to use it, and finally I try to show the results in an understandable way to reach results or conclusions. </p>
 
-<p>Despite being this project based in the concept of Data Science, I am not explicitly  using algorithms from the world of Data Science (in this report I will explain the reasons why some algorithms could not be used), I follow, however, the main principles: look for databases that can help me face the problem, clean all data in order to be able to use it, and finally I try to show the results in an understandable way to reach results or conclusions. </p>
+<h2>
+<a id="objectives" class="anchor" href="#objectives" aria-hidden="true"><span class="octicon octicon-link"></span></a>Objectives</h2>
 
-<p>This document outlined in detail the design, development and implementation of every single step that was necessary to achieve the final result.</p>
+<ol>
+<li>Obtain a set of news to analyze</li>
+<li>Create a locations database</li>
+<li>Identify cities in a text</li>
+<li>Show the results in a map</li>
+</ol>
+
+<h2>
+<a id="limitations-to-consider" class="anchor" href="#limitations-to-consider" aria-hidden="true"><span class="octicon octicon-link"></span></a>Limitations to consider</h2>
+
+<p>This project is not about applying machine learning methods or natural language processing, it's an implementation based on simple characteristics that names of towns have.
+Keep in mind that the cities recognition as well as all databases are prepared to identify locations in catalan, because each language has its' own characteristics. In order to adapt this project to english language it will be necessary to change the database of locations (by simply loading the names of cities and towns in english) and changing the texts to analyze to english ones. 
+Despite not being hardly tested, the location recognition algorithm should give a good approximation also in english.</p>
+
+<h2>
+<a id="first-things-first" class="anchor" href="#first-things-first" aria-hidden="true"><span class="octicon octicon-link"></span></a>First things first</h2>
+
+<p>For locations database I consider two sets of data, one that refers to catalan places (a more detailed database because Catalonia it's the focus place of the digital newspapers used), and a "rest of the world" database.</p>
+
+<h3>
+<a id="catalan-cities-database" class="anchor" href="#catalan-cities-database" aria-hidden="true"><span class="octicon octicon-link"></span></a>Catalan cities database</h3>
+
+<p>For catalan cities I used the database from the Institut Cartogràfic de Catalunya (ICC), the file called Nomencàtor. It is an Excel file, so first steps were to adapt all that information to what is really necessary and save it to a cleaned database. I preserve the following fields:</p>
+
+<ul>
+<li>Name of the town</li>
+<li>Kind of place (town, city,...)</li>
+<li>Coordinates: in order to obtain the coordinates I had to convert from UTM to lat/lon first</li>
+</ul>
+
+<p>All this information is saved into a MongoDB database in order to be able to make queries to it.</p>
+
+<h3>
+<a id="world-cities" class="anchor" href="#world-cities" aria-hidden="true"><span class="octicon octicon-link"></span></a>World cities</h3>
+
+<p>Considering the rest of the world, I considered the database from geonames.org, concretely the file cities15000.txt, which contains all cities with a population of over 15.000 inhabitants.
+By consulting the file alternatenames.txt I got all the names of different towns in Catalan, and after that checking the id of each catalan town name I parsed the file cities15000.txt to obtain more information of each city, for example the coordinates. For each city I preserve the following information:</p>
+
+<ul>
+<li>Name of the town</li>
+<li>Coordinates</li>
+<li>Population</li>
+</ul>
+
+<h2>
+<a id="obtaining-the-news-database" class="anchor" href="#obtaining-the-news-database" aria-hidden="true"><span class="octicon octicon-link"></span></a>Obtaining the news database</h2>
+
+<p>In order to keep a database of news I created an automated process to fetch news from RSS of each digital newspaper. All that data was saved into a database with the following information for each news:</p>
+
+<ul>
+<li>Title</li>
+<li>Subtitle</li>
+<li>Text</li>
+<li>Publication date</li>
+</ul>
+
+<p>The newspapers used were: ara.cat, regio7.cat, and vilaweb.cat</p>
+
+<h2>
+<a id="identifying-cities-in-a-text" class="anchor" href="#identifying-cities-in-a-text" aria-hidden="true"><span class="octicon octicon-link"></span></a>Identifying cities in a text</h2>
+
+<h3>
+<a id="creating-a-key-words-dictionary" class="anchor" href="#creating-a-key-words-dictionary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating a "key words" dictionary</h3>
+
+<p>For each name of city I got the first word that begin with an uppercase letter. i.e.: From the name "Sant Fruitós de Bages" I got the word "Sant".
+For each key word I checked the maximum and minimum ammount of words that can contain a name of town with that key word. i.e.: For the previous town I consider an ammount of 4 words.</p>
+
+<h3>
+<a id="a-simple-algorithm-to-identify-cities" class="anchor" href="#a-simple-algorithm-to-identify-cities" aria-hidden="true"><span class="octicon octicon-link"></span></a>A simple algorithm to identify cities</h3>
+
+<ol>
+<li>First of all I identify all words beginning with an upper case letter.</li>
+<li>I ignore the words that are in a black list (words that can produce false positives of cities, for example the city of "Un" in India. It is a small city that rarely appears in catalan newspapers, but this name refers also to an article in catalan, so it is a word that can produce confusion in results)</li>
+<li>I check if the word is a people name, or the word was preceded by a name of a person (in order to prevent surnames)</li>
+<li>For each city name that was identified at this point, I get the X following words, where this X refers to the maximum longitude of a name of town with this key word.</li>
+<li>For each key word, I check first the longest option and reduce the ammount of words in order to identify a city. For example, given the key word "Abella" that has a maximum longitude of 3, and a minimum of 1. First I get the keyword and the next 2 words (will have a longitude of 3 words) "Abella era una", and I check whether if this city is in the list of cities, I see that it is not in the list. I continue reducing by 1 the length of words, so now I have "Abella era", which is not a name of town. I continue until I reach the minimum length registered in the dictionary for this word, that is 1. I check "Abella" which has the minimum length, and I see that is a city in the list, so now I have a town and I save it as a found city.</li>
+<li>Finally, for each found city I query it in the database of cities and I save the coordinates and the information given by the database in a CSV file.</li>
+<li>All that files will be uploaded to CartoDB in order to show the results in a map.</li>
+</ol>
+
+<h2>
+<a id="extra-step-clustering-the-results-using-the-algorithm-dbscan" class="anchor" href="#extra-step-clustering-the-results-using-the-algorithm-dbscan" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extra step: Clustering the results using the algorithm DBScan</h2>
+
+<p>In order to show the results in a more clean way, I implemented an algorithm over the previous results.
+I used the DBScan algorithm, with consists in the following steps:</p>
+
+<ul>
+<li>Look for clusters in the neighbourhood of each point (given a distance parameter Epsilon).</li>
+<li>If inside the neighbourhood there are more cities than the ones specified by a parameter named minPoints, a cluster will be created.</li>
+<li>Iteratively this algorithm will put together the reachable points from the center of each cluster.</li>
+<li>When no more points can be joined to a cluster, the algorithm ends.</li>
+</ul>
+
+<h2>
+<a id="results" class="anchor" href="#results" aria-hidden="true"><span class="octicon octicon-link"></span></a>Results</h2>
+
+<p>Over a sample database of 200 news, the effectivity was over the 93%. So it is a non-perfect algorithm, but can give results with a high degree of reliability.</p>
+
+<h3>
+<a id="cities-with-more-appearances" class="anchor" href="#cities-with-more-appearances" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cities with more appearances</h3>
+
+<pre><code>    1.  Barcelona   826
+2.  Madrid  298
+3.  Manresa     148
+4.  Lleida  116
+5.  Girona  113
+6.  Tarragona   82
+7.  Berga   76
+8.  Badalona    73
+9.  Berlín 65
+10. Sabadell    61
+11. París  58 
+12. Nova York   52
+13. Terrassa    48
+14. Sevilla 43
+15. Londres 42
+16. Reus    42
+17. Munic   38
+18. Mataró 37
+19. Vic     33
+20. Roma    29
+</code></pre>
 
 <h1>
 <a id="final-maps" class="anchor" href="#final-maps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Final maps</h1>
-<iframe width='100%' height='520' frameborder='0' src='https://alsolanes.cartodb.com/viz/9db1d1e0-1417-11e5-998b-0e0c41326911/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
-<iframe width='100%' height='520' frameborder='0' src='https://alsolanes.cartodb.com/viz/ea8ad2c2-1bf7-11e5-bade-0e853d047bba/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>        
-<iframe width='100%' height='520' frameborder='0' src='https://alsolanes.cartodb.com/viz/76172892-1bf6-11e5-b8d9-0e018d66dc29/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>        
-<iframe width='100%' height='520' frameborder='0' src='https://alsolanes.cartodb.com/viz/df823238-1bcc-11e5-97f8-0e0c41326911/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
         </section>
 
         <aside id="sidebar">
